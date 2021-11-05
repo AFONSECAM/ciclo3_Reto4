@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients</title>
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/scripts_client.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Alquiler de Quadbikes - Ciclo 3 / Reto 3</span>
+                <a class="btn btn-success" href="../dashboard.html">Ir al dashboard</a>
+            </div>
+        </nav>
+
+        <div class="pt-2">
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                    <p>Clients</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    Someone famous in <cite title="Source Title">Source Title</cite>
+                </figcaption>
+            </figure>
+        </div>
+
+        <hr />
+
+        <div id="info" style="display: none;">
+            <table class="table table-hover">
+                <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody id="allItems"></tbody>
+            </table>
+        </div>
+
+        <div class="row" id="buttons">
+            <!-- <button class="col btn btn-info" type="button" onclick="getClientData()">Ver registros</button> -->
+            <button class="col btn btn-primary" type="button" onclick="showForm()">Crear nuevo</button>
+        </div>
+
+
+        <div id="formPost" style="display: none;">
+            <form action="" method="post" class="row">
+                <input type="text" name="id" id="id" hidden>
+                <div class="col-6 pt-4 pb-4">
+                    <input class="form-control" type="text" name="name" id="name" placeholder="Name" aria-label="Name"
+                        required>
+                </div>
+                <div class="col-6 pt-4 pb-4">
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Email"
+                        aria-label="Email" required>
+                </div>
+                <div class="col-6 pt-4 pb-4">
+                    <input class="form-control" type="number" name="age" id="age" placeholder="Age" aria-label="Age"
+                        required>
+                </div>
+                <div class="col-6 pt-4 pb-4">
+                    <input class="form-control" type="password" name="password" id="password" placeholder="Password"
+                        aria-label="Password" required>
+                </div>
+
+                <button class="btn btn-info col" type="button" onclick="location.reload();" id="btnCancelar"
+                    style="display: none;">Cancelar</button>
+                <button class="btn btn-info col" type="button" onclick="editClientData()" id="btnEditar"
+                    style="display: none;">Editar</button>
+                <button class="btn btn-success col" type="button" onclick="postClientData()" id="btnGuardar"
+                    style="display: none;">Guardar</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Reto4</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1>Reto 4</h1>
+    <div class="container">
+        Para iniciar sesión en Github:
+        <a class="btn btn-success" href="/oauth2/authorization/github"> haz click aquí</a>
+    </div>
+    <script>
+        $.get("/user", function(data){
+            window.location.replace("/dashboard.html");
+        });
+    </script>
+</body>
+
+</html>

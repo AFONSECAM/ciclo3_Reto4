@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Alquiler de Quadbikes - Ciclo 3 / Reto 3</span>
+            </div>
+        </nav>
+
+        <div class="pt-2">
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                    <p id="user"></p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    Someone famous in <cite title="Source Title">Source Title</cite>
+                </figcaption>
+            </figure>
+        </div>
+
+
+        <div class="pt-3 row">
+            <div class="col-4">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-header">Quadbikes</div>
+                    <div class="card-body">
+                        <p class="card-text">Aquí podrá hacer CRUD de Quadbikes.</p>
+                        <a href="html/quadbike.html" class="btn btn-primary">Ir ahora</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">Categorías</div>
+                    <div class="card-body">
+                        <p class="card-text">Aquí podrá hacer CRUD de Categorías.</p>
+                        <a href="html/category.html" class="btn btn-secondary">Ir ahora</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header">Clientes</div>
+                    <div class="card-body">
+                        <p class="card-text">Aquí podrá hacer CRUD de Clientes.</p>
+                        <a href="html/client.html" class="btn btn-success">Ir ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-3 row">
+            <div class="col-4">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-header">Mensajes</div>
+                    <div class="card-body">
+                        <p class="card-text">Aquí podrá hacer CRUD de Mensajes.</p>
+                        <a href="html/message.html" class="btn btn-danger">Ir ahora</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card text-dark bg-warning mb-3">
+                    <div class="card-header">Reservas</div>
+                    <div class="card-body">
+                        <p class="card-text">Aquí podrá hacer CRUD de Reservas.</p>
+                        <a href="html/reservation.html" class="btn btn-warning">Ir ahora</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card text-white bg-dark mb-3">
+                    <div class="card-header">Usuarios</div>
+                    <div class="card-body">
+                        <p class="card-text">Aquí podrá hacer CRUD de Usuarios.</p>
+                        <a href="#" class="btn btn-dark">Ir ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                </a>
+                <span class="text-muted">&copy; 2021 Company, Inc</span>
+            </div>
+        </footer>
+    </div>
+    <script>
+        $.get("/user", function(data){
+            $("#user").html("Bienvenid@: " + data.name);
+        });
+    </script>
+</body>
+
+</html>
