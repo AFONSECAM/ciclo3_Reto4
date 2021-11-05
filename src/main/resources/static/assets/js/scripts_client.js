@@ -5,7 +5,7 @@ function getClientData() {
     hideForm();
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Client/all",
+        url: "http://158.101.116.78:8080/api/Client/all",
         type: "GET",
         success: function (response) {
             console.log(response);
@@ -35,7 +35,7 @@ function getClientDataById(idItem) {
     $("#info").attr("style", "display:none");
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Client/" + idItem,
+        url: "http://158.101.116.78:8080/api/Client/" + idItem,
         type: 'GET',
         success: function (response) {
             var item = response;
@@ -63,7 +63,7 @@ function postClientData() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(elemento),
-        url: "http://localhost:8080/api/Client/save",
+        url: "http://158.101.116.78:8080/api/Client/save",
         type: "POST",
         success: function (response) {
             alert("Creación exitosa!");
@@ -86,7 +86,7 @@ function editClientData() {
     $.ajax({
         contentType: "application/json; charset=utf-8",   
         data: dataToSend,
-        url: "http://localhost:8080/api/Client/update",
+        url: "http://158.101.116.78:8080/api/Client/update",
         type: "PUT",
         success: function (response) {
             alert("Edición exitosa!");
@@ -101,7 +101,7 @@ function editClientData() {
 function deleteClientData(idElemento) {
     $.ajax({
         contentType: "application/json; charset=utf-8",           
-        url: "http://localhost:8080/api/Client/" + idElemento,
+        url: "http://158.101.116.78:8080/api/Client/" + idElemento,
         type: "DELETE",
         success: function (response) {
             alert("Eliminación exitosa!");

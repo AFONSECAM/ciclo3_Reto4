@@ -5,7 +5,7 @@ function getReservationData() {
     hideForm();
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Reservation/all",
+        url: "http://158.101.116.78:8080/api/Reservation/all",
         type: "GET",
         success: function (response) {
             if(response.length==0){
@@ -19,8 +19,8 @@ function getReservationData() {
                 $("#allItems").append("<td>" + misItems[i].devolutionDate + "</td>");
                 $("#allItems").append("<td>" + misItems[i].quadbike.name + "</td>");
                 $("#allItems").append("<td>" + misItems[i].client.name + "</td>");
-                $("#allItems").append('<td><button onclick="deleteMessageData(' + misItems[i].id + ')">Borrar</button>');
-                $("#allItems").append('<td><button onclick="getMessageDataById(' + misItems[i].id + ')">Editar</button>');
+                $("#allItems").append('<td><button onclick="deleteReservationData(' + misItems[i].id + ')">Borrar</button>');
+                $("#allItems").append('<td><button onclick="getReservationDataById(' + misItems[i].id + ')">Editar</button>');
                 $("#allItems").append("</tr>");
             }
         },
@@ -36,13 +36,14 @@ function getReservationDataById(idItem) {
     $("#info").attr("style", "display:none");
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Message/" + idItem,
+        url: "http://158.101.116.78:8080/api/Reservation/" + idItem,
         type: 'GET',
         success: function (response) {            
             var item = response;
-                $('#idMessage').val(item.idMessage),
-                $("#messageText").val(item.messageText),
-                $("#client").val(item.client.name),
+                $('#id').val(item.id),
+                $("#startDate").val(item.startDate),
+                $("#devolutionDate").val(item.devolutionDate),
+                $("#client").val(item.client.name)
                 $("#quadbike").val(item.quadbike.name)
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -108,21 +109,23 @@ function postReservationData() {
         }
     });
 }
-/*
-function editMessageData() {
+
+function editReservationData(){
     var elemento = {
-        idMessage: $("#idMessage").val(),
-        messageText: $("#messageText").val(),
-        client: $("#client").val(),
-        quadbike: $("#quadbike").val()
+        idReservation: $("#id").val(),
+        startDate: $("#startDate").val(),
+        devolutionDate: $("#devolutionDate").val(),
+        devolutionDate: $("#client").val(),
+        devolutionDate: $("#quadbike").val(),
+        status: "created",
     }
     var dataToSend = JSON.stringify(elemento);
     $.ajax({
-        contentType: 'application/json',
+        contentType: "application/json; charset=utf-8",   
         data: dataToSend,
-        url: "https://gd0a38737ba02de-dbreto1.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/client/client",
+        url: "http://158.101.116.78:8080/api/Reservation/update",
         type: "PUT",
-        success: function (response) {
+         success: function (response) {
             alert("Edición exitosa!");
             location.reload();
         },
@@ -132,15 +135,10 @@ function editMessageData() {
     });
 }
 
-function deleteMessageData(idElemento) {
-    var elemento = {
-        idMessage: idElemento,
-    }
-    var dataToSend = JSON.stringify(elemento);
+function deleteReservationData(idElemento) {
     $.ajax({
-        contentType: 'application/json',
-        data: dataToSend,
-        url: "https://gd0a38737ba02de-dbreto1.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/client/client",
+      contentType: "application/json; charset=utf-8",          
+        url: "http://158.101.116.78:8080/api/Reservation/" + idElemento,
         type: "DELETE",
         success: function (response) {
             alert("Eliminación exitosa!");
@@ -151,8 +149,6 @@ function deleteMessageData(idElemento) {
         }
     });
 }
-
-*/
 
 function showForm() {
     $("#formPost").removeAttr("style");

@@ -4,7 +4,7 @@ function getCategories(){
     /* $('#category').empty().append('<option>Select an option</option>');  */
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Category/all",
+        url: "http://158.101.116.78:8080/api/Category/all",
         type: "GET",
         success: function (response) {             
             if(response.length == 0){
@@ -26,7 +26,7 @@ function getDataQuadbike() {
     hideForm();
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Quadbike/all",
+        url: "http://158.101.116.78:8080/api/Quadbike/all",
         type: "GET",
         success: function (response) {             
             if(response.length==0){
@@ -56,7 +56,7 @@ function getDataQuadbikeById(idItem) {
     $("#info").attr("style", "display:none");
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Quadbike/" + idItem,
+        url: "http://158.101.116.78:8080/api/Quadbike/" + idItem,
         type: 'GET',
         success: function (response) {            
             $('#category').empty().append("<option selected='selected' value="+response.category.id+">"+response.category.name+"</option>");                                                         
@@ -86,7 +86,7 @@ function postQuadbikeData() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(elemento),
-        url: "http://localhost:8080/api/Quadbike/save",
+        url: "http://158.101.116.78:8080/api/Quadbike/save",
         type: "POST",
         success: function (response) {
             console.log(response);
@@ -111,7 +111,7 @@ function editQuadbikeData() {
     $.ajax({
         contentType: "application/json; charset=utf-8",        
         data: dataToSend,
-        url: "http://localhost:8080/api/Quadbike/update",
+        url: "http://158.101.116.78:8080/api/Quadbike/update",
         type: "PUT",
         success: function (response) {            
             alert("Edición exitosa!");
@@ -126,7 +126,7 @@ function editQuadbikeData() {
 function deleteQuadbikeData(idElemento) {
     $.ajax({
         contentType: "application/json; charset=utf-8",        
-        url: "http://localhost:8080/api/Quadbike/" + idElemento,
+        url: "http://158.101.116.78:8080/api/Quadbike/" + idElemento,
         type: "DELETE",
         success: function (response) {
             alert("Eliminación exitosa!");

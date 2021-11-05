@@ -5,7 +5,7 @@ function getMessageData() {
     hideForm();
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Message/all",
+        url: "http://158.101.116.78:8080/api/Message/all",
         type: "GET",
         success: function (response) {
             if(response.length==0){
@@ -34,7 +34,7 @@ function getMessageDataById(idItem) {
     $("#info").attr("style", "display:none");
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Message/" + idItem,
+        url: "http://158.101.116.78:8080/api/Message/" + idItem,
         type: 'GET',
         success: function (response) {
             $('#client').empty().append("<option selected='selected' value="+response.client.idClient+">"+response.client.name+"</option>");
@@ -57,7 +57,7 @@ function getClients(){
     /* $('#client').empty().append('<option>Select an option</option>');  */
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Client/all",
+        url: "http://158.101.116.78:8080/api/Client/all",
         type: "GET",
         success: function (response) {
             if(response.length == 0){
@@ -78,7 +78,7 @@ function getQuadbikes(){
     /* $('#quadbike').empty().append('<option>Select an option</option>');  */
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Quadbike/all",
+        url: "http://158.101.116.78:8080/api/Quadbike/all",
         type: "GET",
         success: function (response) {      
             if(response.length == 0){
@@ -106,7 +106,7 @@ function postMessageData() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(elemento),
-        url: "http://localhost:8080/api/Message/save",
+        url: "http://158.101.116.78:8080/api/Message/save",
         type: "POST",
         success: function (response) {
             alert("Creación exitosa!");
@@ -128,7 +128,7 @@ function editMessageData() {
     $.ajax({
         contentType: "application/json; charset=utf-8",   
         data: dataToSend,
-        url: "http://localhost:8080/api/Message/update",
+        url: "http://158.101.116.78:8080/api/Message/update",
         type: "PUT",
         success: function (response) {
             alert("Edición exitosa!");
@@ -143,7 +143,7 @@ function editMessageData() {
 function deleteMessageData(idElemento) {
     $.ajax({
         contentType: "application/json; charset=utf-8",          
-        url: "http://localhost:8080/api/Message/" + idElemento,
+        url: "http://158.101.116.78:8080/api/Message/" + idElemento,
         type: "DELETE",
         success: function (response) {
             alert("Eliminación exitosa!");

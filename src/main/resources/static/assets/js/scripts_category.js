@@ -5,7 +5,7 @@ function getCategoryData() {
     hideForm();
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Category/all",
+        url: "http://158.101.116.78:8080/api/Category/all",
         type: "GET",
         success: function (response) {
             console.log(response)
@@ -40,7 +40,7 @@ function getCategoryDataById(idItem) {
     $("#info").attr("style", "display:none");
     $.ajax({
         dataType: 'json',
-        url: "http://localhost:8080/api/Category/" + idItem,
+        url: "http://158.101.116.78:8080/api/Category/" + idItem,
         type: 'GET',
         success: function (response) {
             console.log(response);
@@ -64,7 +64,7 @@ function postCategoryData() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(elemento),
-        url: "http://localhost:8080/api/Category/save",
+        url: "http://158.101.116.78:8080/api/Category/save",
         type: "POST",
         success: function (response) {
             console.log(response.textStatus);
@@ -86,7 +86,7 @@ function editCategoryData() {
     $.ajax({
         contentType: "application/json; charset=utf-8",
         data: dataToSend,
-        url: "http://localhost:8080/api/Category/update",
+        url: "http://158.101.116.78:8080/api/Category/update",
         type: "PUT",
         success: function (response) {
             alert("Edición exitosa!");
@@ -101,7 +101,7 @@ function editCategoryData() {
 function deleteCategoryData(idElemento) {
     $.ajax({
         contentType: "application/json; charset=utf-8",        
-        url: "http://localhost:8080/api/Category/"+ idElemento,
+        url: "http://158.101.116.78:8080/api/Category/"+ idElemento,
         type: "DELETE",
         success: function (response) {
             alert("Eliminación exitosa!");
